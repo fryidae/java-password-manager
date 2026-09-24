@@ -16,5 +16,10 @@
     	ImageView iview = new ImageView(image);
     	button.setGraphic(iview);
     	root.setCenter(button);
+
+## 9/23/26
+-Found out how to make buttons trigger system output.
+- Added button text and iview as arguments instead of separate statements.
+- Labels work the same syntactically to set up as buttons.
     
   
