@@ -1,6 +1,6 @@
-##Learning Log
+## Learning Log
 
-##9/24/26
+## 9/24/26
 - Learned the basic functions of HBox, VBox, and TextFields
 - button.setMaxSize() accounts for the height and Width of buttons
 - FlowPane makes buttons flow with the default horizontal orientation. (Vbox and Hbox combined)
