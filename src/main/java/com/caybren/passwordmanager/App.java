@@ -34,7 +34,8 @@ public class App extends Application {
 			@Override
 			public void handle(ActionEvent event) {
 				System.out.println("Event Filter");
-				//event.consum() makes event handler not process
+				//event.consume() makes event handler not process
+
 			}
     	});
     	root.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
