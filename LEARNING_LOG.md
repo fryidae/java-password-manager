@@ -1,4 +1,5 @@
-#Learning Log
+##Learning Log
+
 ##9/24/26
 - Learned the basic functions of HBox, VBox, and TextFields
 - button.setMaxSize() accounts for the height and Width of buttons
