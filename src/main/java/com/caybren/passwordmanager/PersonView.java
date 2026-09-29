@@ -9,7 +9,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.IntegerStringConverter;
 
-public class PersonTableView extends VBox {
+public class PersonView extends VBox {
 	
 	//Instance Variables
 	private TableView<Person> table;
@@ -17,7 +17,7 @@ public class PersonTableView extends VBox {
 	private TableColumn<Person, String> lastNameColumn;
 	private TableColumn<Person, Integer> ageColumn;
 	
-	public PersonTableView() {
+	public PersonView() {
 		buildUI();
 	}
 
@@ -64,11 +64,15 @@ public class PersonTableView extends VBox {
     	
     	table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     	
-    	table.getItems().add(new Person("Caybren", "Conston", 18));
-    	table.getItems().add(new Person("Kam", "Piper", 17));
-    	table.getItems().add(new Person("Mojo", "Slaughter", 18));
+    	
 		
     	getChildren().add(table);
 	}
+	
+	public void add(Person person) {
+		table.getItems().add(person);
+	}
 
 }
+
+

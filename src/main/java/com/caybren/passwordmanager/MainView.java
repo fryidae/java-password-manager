@@ -14,7 +14,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 public class MainView {
 	private Stage stage;
-	private  PersonTableView table	;
+	private PersonView personView;
 	
 	public MainView() {
 		buildUI();
@@ -100,8 +100,13 @@ public class MainView {
     	
     	
     
-    	table = new PersonTableView();
-    	root.setCenter(table);
+    	personView = new PersonView();
+    	
+    	personView.add(new Person("Caybren", "Conston", 18));
+    	personView.add(new Person("Kam", "Piper", 17));
+    	personView.add(new Person("Mojo", "Slaughter", 18));
+    	
+    	root.setCenter(personView);
     	
     	
     	Scene scene = new Scene(root, 600, 300); //change hbox/vbox to root 
