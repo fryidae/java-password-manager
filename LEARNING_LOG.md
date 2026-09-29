@@ -1,8 +1,8 @@
 ## Learning Log
 
 ## 9/28/26
--CSS basics in JavaFX
--TableView basics
+- CSS basics in JavaFX
+- TableView basics
 - Created classes for separate elements instead of one main file
 
 ## 9/24/26
