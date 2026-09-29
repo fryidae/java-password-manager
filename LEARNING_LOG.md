@@ -1,5 +1,10 @@
 ## Learning Log
 
+## 9/28/26
+-CSS basics in JavaFX
+-TableView basics
+- Created classes for separate elements instead of one main file
+
 ## 9/24/26
 - Learned the basic functions of HBox, VBox, and TextFields
 - button.setMaxSize() accounts for the height and Width of buttons
