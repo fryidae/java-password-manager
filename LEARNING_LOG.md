@@ -1,5 +1,12 @@
 ## Learning Log
 
+## 9/29/26
+- GridPane basics
+- BorderPane basics
+- Creating, firing and responding to custom events
+- StackPane basics
+- Lambda expressions with setOnActionEvents
+
 ## 9/28/26
 - CSS basics in JavaFX
 - TableView basics
@@ -34,6 +41,4 @@
 
 ## 9/15
 - Start learning JavaFX programming via "Java Code Junkie" on YouTube.
-
-
   
