@@ -1,5 +1,15 @@
 ## Learning Log
 
+## 10/05/26
+- TilePane
+- TitledPane
+- CheckBox
+- Scene Switching
+- ScrollPane (dropdown)
+- Binding
+- Alerts
+- ComboBox
+
 ## 9/29/26
 - GridPane basics
 - BorderPane basics
