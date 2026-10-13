@@ -3,6 +3,10 @@
 ## Overview
 This document records the challenges, obstacles, and lessons learned while building the Java Password Manager for my CMPS 260 Honors Contract.
 
+## 10/13/26
+- Finished learning basic JavaFX controls, methods, syntax, classes, etc.
+- Started CryptoUtils 
+
 ## 9/28/26
 - I fixed the CSS loading issue by using getClass().getResource() with .toExternalForm() instead of a plain path string, so JavaFX could properly locate the stylesheet.
 - Eclipse's e(fx)clipse plugin threw a "WidgetProperties compatibility error" when creating FXML files, so I worked around it by creating the .fxml file manually and adding the .fxml extension.
