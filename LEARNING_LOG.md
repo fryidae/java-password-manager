@@ -1,5 +1,34 @@
 ## Learning Log
 
+## 10/13/26
+- Learned how PBKDF2 operates
+- Oracle's Class Cipher
+       - Modes, Padding, IV, GCMParameterSpec, PKCS5, etc
+- Oracle's SecureRandom
+- How to Generate a Random Byte Array of N Bytes using SecureRandom (Baeldung)
+
+## 10/05/26
+- TilePane
+- TitledPane
+- CheckBox
+- Scene Switching
+- ScrollPane (dropdown)
+- Binding
+- Alerts
+- ComboBox
+
+## 9/29/26
+- GridPane basics
+- BorderPane basics
+- Creating, firing and responding to custom events
+- StackPane basics
+- Lambda expressions with setOnActionEvents
+
+## 9/28/26
+- CSS basics in JavaFX
+- TableView basics
+- Created classes for separate elements instead of one main file
+
 ## 9/24/26
 - Learned the basic functions of HBox, VBox, and TextFields
 - button.setMaxSize() accounts for the height and Width of buttons
@@ -29,6 +58,4 @@
 
 ## 9/15
 - Start learning JavaFX programming via "Java Code Junkie" on YouTube.
-
-
   
