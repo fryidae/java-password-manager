@@ -5,7 +5,8 @@ This document records the challenges, obstacles, and lessons learned while build
 
 ## 10/13/26
 - Finished learning basic JavaFX controls, methods, syntax, classes, etc.
-- Started CryptoUtils 
+- Started CryptoUtils with generateSalt()
+- Local and remote branches had diverged, so I merged the remote history, pushed to main, and renamed my local branch to match GitHub's default, fixing the split branch problem once and for all.
 
 ## 9/28/26
 - I fixed the CSS loading issue by using getClass().getResource() with .toExternalForm() instead of a plain path string, so JavaFX could properly locate the stylesheet.
