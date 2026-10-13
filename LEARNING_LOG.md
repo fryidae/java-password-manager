@@ -1,5 +1,12 @@
 ## Learning Log
 
+## 10/13/26
+- Learned how PBKDF2 operates
+- Oracle's Class Cipher
+       - Modes, Padding, IV, GCMParameterSpec, PKCS5, etc
+- Oracle's SecureRandom
+- How to Generate a Random Byte Array of N Bytes using SecureRandom (Baeldung)
+
 ## 10/05/26
 - TilePane
 - TitledPane
