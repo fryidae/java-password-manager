@@ -1,5 +1,11 @@
 ## Learning Log
 
+##10/14/26
+- How to derive an AES key using Class SecretKeyFactory and PBEKeySpec
+- made private static final SecureRandom RNG = new SecureRandom(); to save space
+  Ex.         //SecureRandom secureRandomSalt = new SecureRandom(); // secure RNG
+		//secureRandomSalt.nextBytes(saltBytes); // fill array with random bytes
+		RNG.nextBytes(saltBytes); //earlier 2 lines combined to one
 ## 10/13/26
 - Learned how PBKDF2 operates
 - Oracle's Class Cipher
