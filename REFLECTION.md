@@ -3,6 +3,9 @@
 ## Overview
 This document records the challenges, obstacles, and lessons learned while building the Java Password Manager for my CMPS 260 Honors Contract.
 
+## 10/14/26
+-Finished CryptoUtils w/ deriveKey(), encode(), and decode() methods.
+
 ## 10/13/26
 - Finished learning basic JavaFX controls, methods, syntax, classes, etc.
 - Started CryptoUtils with generateSalt()
