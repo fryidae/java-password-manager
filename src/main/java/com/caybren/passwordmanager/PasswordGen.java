@@ -26,12 +26,13 @@ public final class PasswordGen {
         }
         return password.toString();
     }
+    /*TEST
     public static void main(String[] args) {
         System.out.println("16 with symbols:    " + generate(16, true));
         System.out.println("16 without symbols: " + generate(16, false));
         System.out.println("8 with symbols:     " + generate(8, true));
         System.out.println("32 without symbols: " + generate(32, false));
     }
-
+	*/
 }
 

@@ -1,6 +1,15 @@
 ## Learning Log
 
-##10/14/26
+## 10/15/26
+- Learned String pool
+- discovered implement Serializable
+- eclipse shortcut right click > source > Generate Getters and Setters
+-ByteArrayInputStream and ByteArrayOutputStream
+- ObservableList implementations in JavaFX aren't always guaranteed to be serializable. Wrapping in a plain ArrayList makes it a standard, well-behaved Serializable object. "oos.writeObject(new ArrayList<>(entries));"
+-@SuppressWarnings("unchecked")
+
+
+## 10/14/26
 - How to derive an AES key using Class SecretKeyFactory and PBEKeySpec
 - made private static final SecureRandom RNG = new SecureRandom(); to save space
   Ex.         //SecureRandom secureRandomSalt = new SecureRandom(); // secure RNG

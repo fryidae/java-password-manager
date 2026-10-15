@@ -3,6 +3,11 @@
 ## Overview
 This document records the challenges, obstacles, and lessons learned while building the Java Password Manager for my CMPS 260 Honors Contract.
 
+## 10/15/26
+-PasswordGen class complete with PasswordGen()
+-VaultEntry complete with VaultEntry() getters and setters
+-Started Vault with Vault()
+
 ## 10/14/26
 -Finished CryptoUtils w/ deriveKey(), encode(), and decode() methods.
 
