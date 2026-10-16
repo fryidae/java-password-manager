@@ -110,30 +110,6 @@ public class VaultView extends BorderPane {
         statusLabel.setText(message);
     }
     
-    public static void main(String[] args) {
-        javafx.application.Application.launch(TestApp.class);
-    }
-
-    public static class TestApp extends javafx.application.Application {
-        @Override
-        public void start(javafx.stage.Stage stage) throws Exception {
-            // Set up a fake vault with test data
-            byte[] salt = CryptoUtils.generateSalt();
-            javax.crypto.SecretKey key = CryptoUtils.deriveKey("test", salt);
-            Vault vault = new Vault(
-                new java.io.File("test-vault.dat"),
-                new java.io.File("test-vault.salt"),
-                key
-            );
-            vault.add(new VaultEntry("github.com", "fryidae", "hunter2", "personal"));
-            vault.add(new VaultEntry("gmail.com", "caybrenc", "abc123", ""));
-            vault.add(new VaultEntry("netflix.com", "caybren", "pass1234", "shared"));
-
-            VaultView view = new VaultView(vault);
-            stage.setScene(new javafx.scene.Scene(view, 700, 400));
-            stage.setTitle("VaultView Test");
-            stage.show();
-        }
-    }
+    
     
 }

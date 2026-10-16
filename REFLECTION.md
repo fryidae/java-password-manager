@@ -5,7 +5,8 @@ This document records the challenges, obstacles, and lessons learned while build
 
 ## 10/16/26
 - LoginView complete with buildUI() and LoginView().
-- VaultView Vbox in top region because BorderPane.setTop() accepts only one node. I need both a MenuBar and a ToolBar up there  so I wrap them in a VBox (which stacks vertically), then put the VBox in the top region.
+- VaultView Vbox in top region because BorderPane.setTop() accepts only one node. I need both a MenuBar and a ToolBar up there so I wrap them in a VBox (which stacks vertically), then put the VBox in the top region.
+-VaultView complete with buildUI(), getters, setters, and default constructor. menu, toolbar, and table.
 
 ## 10/15/26
 -PasswordGen class complete with PasswordGen()
