@@ -1,5 +1,8 @@
 ## Learning Log
 
+## 10/16/26
+- extends Borderpane instead of calling it so i can have gridpane and a borderpane.
+
 ## 10/15/26
 - Learned String pool
 - discovered implement Serializable

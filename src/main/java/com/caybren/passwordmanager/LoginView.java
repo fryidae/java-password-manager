@@ -9,14 +9,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-
+//typical login screen
 public class LoginView extends BorderPane {
 
     private PasswordField passwordField;
     private Button loginButton;
     private Label errorLabel;
 
-    public LoginView() {
+    public LoginView() { 
         buildUI();
     }
 
@@ -30,6 +30,15 @@ public class LoginView extends BorderPane {
 
         setCenter(form);
 
+        Label passwordPrompt = new Label("Master Password:");
+        passwordField = new PasswordField();
+        passwordField.setPromptText("Enter master password");
+        loginButton = new Button("Login");
+
+        form.add(passwordPrompt, 0, 0);
+        form.add(passwordField, 1, 0);
+        form.add(loginButton, 1, 1);
+        
         errorLabel = new Label();
         errorLabel.setStyle("-fx-text-fill: red;");
         errorLabel.setAlignment(Pos.CENTER);

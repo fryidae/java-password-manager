@@ -3,6 +3,10 @@
 ## Overview
 This document records the challenges, obstacles, and lessons learned while building the Java Password Manager for my CMPS 260 Honors Contract.
 
+## 10/16/26
+- LoginView complete with buildUI() and LoginView().
+- VaultView Vbox in top region because BorderPane.setTop() accepts only one node. I need both a MenuBar and a ToolBar up there  so I wrap them in a VBox (which stacks vertically), then put the VBox in the top region.
+
 ## 10/15/26
 -PasswordGen class complete with PasswordGen()
 -VaultEntry complete with VaultEntry() getters and setters
