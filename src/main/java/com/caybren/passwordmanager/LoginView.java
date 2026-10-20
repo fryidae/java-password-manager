@@ -58,4 +58,8 @@ public class LoginView extends BorderPane {
         passwordField.clear();
         errorLabel.setText("");
     }
+    
+    public Button getLoginButton() {
+        return loginButton;
+    }
 }

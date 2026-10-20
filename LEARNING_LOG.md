@@ -1,5 +1,10 @@
 ## Learning Log
 
+## 10/20/26
+- App data belongs in ~/Library/Application Support/, with a subfolder for each app. Used this to place vault files
+- Lifecycle runs init() → start(Stage) → stop(). Only start() runs on the JavaFX thread. Confirmed App.java extends Application correctly
+- FXML fields are null inside the constructor; initialize() runs after injection. Since I'm building UI in code, I use buildUI() called from the constructor instead.
+
 ## 10/16/26
 - extends Borderpane instead of calling it so i can have gridpane and a borderpane.
 

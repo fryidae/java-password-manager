@@ -110,6 +110,9 @@ public class VaultView extends BorderPane {
         statusLabel.setText(message);
     }
     
+    public TableView<VaultEntry> getTable() {
+        return table;
+    }
     
     
 }
