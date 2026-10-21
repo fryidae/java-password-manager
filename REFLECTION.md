@@ -3,6 +3,10 @@
 ## Overview
 This document records the challenges, obstacles, and lessons learned while building the Java Password Manager for my CMPS 260 Honors Contract.
 
+## 10/21/26
+- added final touches to app.java
+- app now runs end to end 
+
 ## 10/20/26
 -AppController complete
 -MainView updated
