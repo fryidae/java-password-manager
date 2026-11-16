@@ -1,17 +1,22 @@
 package com.caybren.passwordmanager;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VaultView extends BorderPane {
 
@@ -32,6 +37,8 @@ public class VaultView extends BorderPane {
     private VBox topArea;
 
     private Label statusLabel;
+    
+    private TextField searchField;
 
     public VaultView(Vault vault) {
         this.vault = vault;
@@ -63,7 +70,11 @@ public class VaultView extends BorderPane {
         addButton = new Button("Add");
         editButton = new Button("Edit");
         deleteButton = new Button("Delete");
-        toolBar.getItems().addAll(addButton, editButton, deleteButton);
+        
+        searchField = new TextField();
+        searchField.setPromptText("Search...");
+        
+        toolBar.getItems().addAll(addButton, editButton, deleteButton, new Separator(), searchField);
         topArea.getChildren().add(toolBar);
         
         table = new TableView<>();
@@ -76,15 +87,61 @@ public class VaultView extends BorderPane {
 
         passwordColumn = new TableColumn<>("Password");
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
+        passwordColumn.setCellFactory(column -> new TableCell<VaultEntry, String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                // If the cell is empty, show nothing
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    // Otherwise, dots
+                    setText("••••••••");
+                }
+            }
+        });
 
         notesColumn = new TableColumn<>("Notes");
         notesColumn.setCellValueFactory(new PropertyValueFactory<>("notes"));
 
         table.getColumns().addAll(siteColumn, usernameColumn, passwordColumn, notesColumn);
         
-        table.setItems(vault.getEntries());   // give the table data
-        setCenter(table);                     // put the table in the layout
+        
+        
+        
+     // 1. Wrap the observable list in a FilteredList
+        FilteredList<VaultEntry> filteredData = new FilteredList<>(vault.getEntries(), p -> true);
 
+        // 2. Listen for changes in the search field
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(entry -> {
+                // If search field is empty, show all entries
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                
+                // Compare site name to the search text (ignoring uppercase/lowercase)
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (entry.getSite() != null && entry.getSite().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        // 3. Wrap the FilteredList in a SortedList (so clicking column headers still sorts)
+        SortedList<VaultEntry> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+
+        // 5. Give the table the sorted, filtered data
+        table.setItems(sortedData);
+        
+        
+        
+        
+        setCenter(table);
         statusLabel = new Label("Ready");
         setBottom(statusLabel);
 

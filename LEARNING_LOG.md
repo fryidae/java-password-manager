@@ -1,5 +1,9 @@
 ## Learning Log
 
+## 13-16/26
+- textProperty()- JavaFX feature that watches the text inside the search box. 
+- addListener says: "Every time the text changes, run the code inside the brackets."
+
 ## 10/20/26
 - App data belongs in ~/Library/Application Support/, with a subfolder for each app. Used this to place vault files
 - Lifecycle runs init() → start(Stage) → stop(). Only start() runs on the JavaFX thread. Confirmed App.java extends Application correctly

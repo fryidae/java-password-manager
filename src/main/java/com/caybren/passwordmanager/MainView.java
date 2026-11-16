@@ -10,6 +10,7 @@ public class MainView {
 
     private LoginView loginView;
     private VaultView vaultView;
+    
 
     public MainView(Stage stage) {
         this.stage = stage;
@@ -17,6 +18,10 @@ public class MainView {
 
         this.stage.setTitle("Password Manager");
         controller.start();
+        
+        this.stage.setOnCloseRequest(e -> {
+            // Tells controller to save and logout
+        });
     }
 
     public void showLogin() {
