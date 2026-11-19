@@ -7,6 +7,7 @@ This document logs development while building the Java Password Manager for my C
 - autolock added
 - CSS styling
 - DEV LOG, REFELCTION, LEARNING LOG updates
+- HELP, LOCK, SAVE buttons wired
 
 ## 10/21/26
 - added final touches to app.java

@@ -104,7 +104,7 @@ public class AppController {
         mainView.setStatus("Entry deleted");
     }
     
-    private void saveVault() {
+    public void saveVault() {
         try {
             vault.save();
         } catch (GeneralSecurityException | IOException e) {

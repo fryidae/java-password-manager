@@ -17,6 +17,8 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Separator;
 
 public class VaultView extends BorderPane {
 
@@ -33,6 +35,11 @@ public class VaultView extends BorderPane {
     private Button addButton;
     private Button editButton;
     private Button deleteButton;
+    private CheckBox showPasswordsCheckBox;
+    
+    private MenuItem saveItem;
+    private MenuItem exitItem;
+    private MenuItem aboutItem;
     
     private VBox topArea;
 
@@ -54,12 +61,12 @@ public class VaultView extends BorderPane {
         menuBar = new MenuBar();
 
         Menu fileMenu = new Menu("File");
-        MenuItem saveItem = new MenuItem("Save");
-        MenuItem exitItem = new MenuItem("Exit");
+        saveItem = new MenuItem("Save");
+        exitItem = new MenuItem("Lock"); // Changed from Exit to Lock
         fileMenu.getItems().addAll(saveItem, exitItem);
 
         Menu helpMenu = new Menu("Help");
-        MenuItem aboutItem = new MenuItem("About");
+        aboutItem = new MenuItem("About");
         helpMenu.getItems().add(aboutItem);
 
         menuBar.getMenus().addAll(fileMenu, helpMenu);
@@ -74,7 +81,10 @@ public class VaultView extends BorderPane {
         searchField = new TextField();
         searchField.setPromptText("Search...");
         
-        toolBar.getItems().addAll(addButton, editButton, deleteButton, new Separator(), searchField);
+        showPasswordsCheckBox = new CheckBox("Show Passwords"); // 1. Create checkbox
+        
+        // 2. Add  checkbox to the end of toolbar list
+        toolBar.getItems().addAll(addButton, editButton, deleteButton, new Separator(), searchField, showPasswordsCheckBox);
         topArea.getChildren().add(toolBar);
         
         table = new TableView<>();
@@ -91,15 +101,21 @@ public class VaultView extends BorderPane {
             @Override
             protected void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
-                // If the cell is empty, show nothing
+                
                 if (empty || item == null) {
                     setText(null);
                 } else {
-                    // Otherwise, dots
-                    setText("••••••••");
+                    if (showPasswordsCheckBox != null && showPasswordsCheckBox.isSelected()) {
+                        setText(item); // Show real password
+                    } else {
+                        setText("••••••••"); // Show dots
+                    }
                 }
             }
+            
         });
+        
+        showPasswordsCheckBox.setOnAction(e -> table.refresh());
 
         notesColumn = new TableColumn<>("Notes");
         notesColumn.setCellValueFactory(new PropertyValueFactory<>("notes"));
@@ -170,6 +186,10 @@ public class VaultView extends BorderPane {
     public TableView<VaultEntry> getTable() {
         return table;
     }
+    
+    public MenuItem getSaveItem() { return saveItem; }
+    public MenuItem getExitItem() { return exitItem; }
+    public MenuItem getAboutItem() { return aboutItem; }
     
     
 }

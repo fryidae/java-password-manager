@@ -56,6 +56,26 @@ public class MainView {
 
     public void showVault() {
         vaultView = new VaultView(controller.getVault());
+        
+        // Wire Menu Items
+        vaultView.getSaveItem().setOnAction(e -> {
+            controller.saveVault();
+            setStatus("Vault saved manually");
+        });
+
+        vaultView.getExitItem().setOnAction(e -> {
+            controller.logout(); // Locks the app
+        });
+
+        vaultView.getAboutItem().setOnAction(e -> {
+            javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+            alert.setTitle("About");
+            alert.setHeaderText("Java Password Manager");
+            alert.setContentText("Created by Caybren Conston for CMPS 260 Honors Contract.");
+            alert.showAndWait();
+        });
+        
+        
 
         vaultView.getAddButton().setOnAction(e -> {
             controller.addEntry();
