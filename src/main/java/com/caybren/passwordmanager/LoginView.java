@@ -40,7 +40,7 @@ public class LoginView extends BorderPane {
         form.add(loginButton, 1, 1);
         
         errorLabel = new Label();
-        errorLabel.setStyle("-fx-text-fill: red;");
+        errorLabel.getStyleClass().add("error-label");
         errorLabel.setAlignment(Pos.CENTER);
 
         setBottom(errorLabel);

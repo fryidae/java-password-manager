@@ -1,6 +1,31 @@
-.root{
-	-fx-font-family: 'JetBrains Mono';
-	-fx-font-size: 20px;
-	-fx-font-weight: bold;
-	-fx-background-color: lightblue;
+/* Base styling for the whole app */
+.root {
+    -fx-font-family: "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f4f9;
+}
+
+/* Error label on the login screen */
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Standard buttons */
+.button {
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 5 15 5 15;
+}
+
+.button:hover {
+    -fx-background-color: #357abd;
+}
+
+/* Table styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
 }

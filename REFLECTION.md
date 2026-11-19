@@ -1,48 +1,32 @@
 # Project Reflection: Java Password Manager
+**CMPS 260 Honors Contract**
+**Author:** Caybren Conston
 
 ## Overview
-This document records the challenges, obstacles, and lessons learned while building the Java Password Manager for my CMPS 260 Honors Contract.
+This document serves as a reflection on the challenges, obstacles, and lessons learned while independently building a Secure Password Manager in Java for my Honors Contract. The project required moving beyond the basic Java syntax taught in CMPS 260 to master JavaFX for the user interface, and the Java Cryptography Architecture (JCA) for secure data storage. 
 
-## 10/21/26
-- added final touches to app.java
-- app now runs end to end 
+## Key Challenges and Solutions
 
-## 10/20/26
--AppController complete
--MainView updated
--Supporting methods for LoginView and VaultView added
+### 1. Environment Setup and Tooling (September)
+*   **The Challenge:** The initial tutorial series I followed only provided Windows-specific instructions for installing the JDK and Eclipse. Additionally, manually configuring JavaFX in Eclipse led to persistent module path errors (`Module javafx.controls not found`).
+*   **The Solution:** I had to adapt to macOS and initially worked around the FXML wizard bug (the e(fx)clipse "WidgetProperties" error) by manually creating `.fxml` files. However, the ultimate fix was abandoning the manual setup and pivoting to **Maven**. Maven handled the JavaFX dependencies automatically and resolved all module path issues, teaching me the importance of using robust build tools.
 
-## 10/16/26
-- LoginView complete with buildUI() and LoginView().
-- VaultView Vbox in top region because BorderPane.setTop() accepts only one node. I need both a MenuBar and a ToolBar up there so I wrap them in a VBox (which stacks vertically), then put the VBox in the top region.
--VaultView complete with buildUI(), getters, setters, and default constructor. menu, toolbar, and table.
--VaultEntry complete with buildUI() with four input fields and default constructor.
--begin AppController
+### 2. Version Control and Git (September - October)
+*   **The Challenge:** As I moved between IntelliJ and Eclipse, my local branch and the remote GitHub repository diverged significantly (5 commits ahead, 13 behind). Pushing my code resulted in authentication errors and rejection.
+*   **The Solution:** I learned how to use the terminal to resolve merge conflicts. I executed `git pull --allow-unrelated-histories`, resolved the conflicts, and successfully merged the branches. I also learned to configure Git to use a Personal Access Token (PAT) instead of a password, and I successfully renamed my local branch to `main` to prevent future divergence issues.
 
-## 10/15/26
--PasswordGen class complete with PasswordGen()
--VaultEntry complete with VaultEntry() getters and setters
--Started Vault with Vault()
+### 3. Cryptography and Data Integrity (October)
+*   **The Challenge:** Transitioning from basic Java to advanced cryptography was the most difficult part of the project. I had to understand how to safely turn a user's master password into an AES key, and why Initialization Vectors (IVs) are critical.
+*   **The Solution:** I built the `CryptoUtils` class from scratch. I utilized `SecureRandom` to generate a 16-byte salt and implemented PBKDF2 with 600,000 iterations to derive a 256-bit AES key. For encryption, I used AES-GCM, ensuring that a fresh, random 12-byte IV was generated for every single save operation. This ensured that even if the vault file was stolen, the data remained unreadable without the master password, and any tampering with the file would throw an `AEADBadTagException`.
 
-## 10/14/26
--Finished CryptoUtils w/ deriveKey(), encode(), and decode() methods.
+### 4. UI Integration and Styling (October - November)
+*   **The Challenge:** Tying the logic to the JavaFX UI involved specific layout quirks, such as wrapping the MenuBar and ToolBar in a `VBox` because `BorderPane.setTop()` only accepts one node. Additionally, loading CSS stylesheets initially failed due to path issues.
+*   **The Solution:** I resolved the CSS loading issue by using `getClass().getResource().toExternalForm()` rather than a plain string path. I also implemented UI polish features, including a custom `TableCell` to mask passwords with dots (`••••••`), a `FilteredList` wrapped in a `SortedList` to enable instant search, and a `PauseTransition` to automatically lock the app after 5 minutes of inactivity. 
 
-## 10/13/26
-- Finished learning basic JavaFX controls, methods, syntax, classes, etc.
-- Started CryptoUtils with generateSalt()
-- Local and remote branches had diverged, so I merged the remote history, pushed to main, and renamed my local branch to match GitHub's default, fixing the split branch problem once and for all.
+## Reflection on SLOs
+*   **Critical and Creative Inquiry:** I independently researched cryptographic concepts and evaluated different algorithms (hashing vs. key derivation) to design a secure architecture.
+*   **Integrative and Applied Learning:** I combined object-oriented programming, file I/O, cryptographic APIs, and GUI design into a single, cohesive application that solves a real-world problem (credential management).
+*   **Leadership Through Integrity and Initiative:** I managed my own timeline and milestones. When I hit roadblocks with Eclipse or Git, I adapted, researched solutions, and held myself accountable for delivering a working, secure product.
 
-## 9/28/26
-- I fixed the CSS loading issue by using getClass().getResource() with .toExternalForm() instead of a plain path string, so JavaFX could properly locate the stylesheet.
-- Eclipse's e(fx)clipse plugin threw a "WidgetProperties compatibility error" when creating FXML files, so I worked around it by creating the .fxml file manually and adding the .fxml extension.
-- My branch had diverged from main (5 commits ahead, 13 behind), so I pulled the remote changes into my branch, resolved the merge, was 6 commits ahead then I opened a pull request to fully fix the situation.
-
-## 9/22/26
-- I got stumped on why the button image was taking up the whole scene, but I found out I had to set a width and height for the image
-      iview.setFitWidth(16);
-    	iview.setFitHeight(16);
-  
-## 9/18/26 Installing JDK
-- Tutorial only showed Windows installation for JDK/Eclipse. Had to find Mac alternatives.
-- Manual JavaFX setup in Eclipse kept failing with module path errors.
-- Switched to Maven. Worked immediately.
+## Conclusion
+Building this password manager was a massive step up from the standard coursework. While the initial setup and Git merge conflicts were incredibly frustrating, debugging them taught me resilience. I ended up with a fully functional, encrypted desktop application. If I were to build this again, I would use Maven and a proper Git branching strategy from day one. I am proud of the final product and the security standards I was able to implement.
